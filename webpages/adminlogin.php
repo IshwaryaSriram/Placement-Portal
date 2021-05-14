@@ -1,6 +1,6 @@
 <?php
      require_once 'header.php';   
-     include_once('../admin/admcpy.php');  
+     include_once('../admin/admin_login.php');  
        
     
 
