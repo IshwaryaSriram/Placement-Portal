@@ -41,7 +41,7 @@ class dbFunction {
                     if($password!==$row['pwd'])
                     {
                         echo "<script>alert('Password Does Not Match')</script>";
-                        echo "<script> location.replace('../webpages/adm2.php'); </script>";
+                        echo "<script> location.replace('../webpages/adminlogin.php'); </script>";
                         
                     }
                     elseif($password===$row['pwd'])
@@ -103,10 +103,10 @@ if(isset($_POST['submit']))
     {
         $adminid= legal_input($adminid);
         $password= legal_input($password);
-    
+        echo $password;
         $user = $funObj->Login($adminid, $password);  
         if ($user) {  
-            header("location:home.php");  
+            header("location:../webpages/home.php");  
         } else {  
             echo "<script>alert('AdminId Does Not Match')</script>";  
         }
