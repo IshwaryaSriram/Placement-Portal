@@ -42,7 +42,7 @@ $sql = "CREATE TABLE IF NOT EXISTS ADMIN_LOG (
     }
 
 
-$sql = "INSERT INTO admin_log(admin_id,pwd)
+$sql = "INSERT INTO admin_log(admin_id,name,pwd)
 VALUES ('ADM001','Placement Admin','root')";
 
 if ($conn->query($sql) === TRUE) {
