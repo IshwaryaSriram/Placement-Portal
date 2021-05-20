@@ -3,7 +3,7 @@
     session_start();
     $connection = mysqli_connect('localhost','root');
     
-    $db = mysqli_select_db($connection,'phppractice');
+    $db = mysqli_select_db($connection,'placement_portal');
     if(isset($_POST['submit'])){
         $user = $_POST['admin'];
         $pass = $_POST['password'];
