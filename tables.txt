@@ -12,7 +12,7 @@ CREATE TABLE CompanyLogin
   PRIMARY KEY (CompanyId)
 );
 
-CREATE TABLE Entity
+CREATE TABLE CompanyProfile
 (
   VaccanciesCount INT NOT NULL,
   CompanyName INT NOT NULL,
