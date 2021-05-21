@@ -1,7 +1,9 @@
-*{
-    background-color: #131313;
+body{
+    background-color: #1a1a1d;
 }
-
+.container{
+    background: #fff ;
+}
 .center-div{
     position: absolute;
     top: 50%;
@@ -14,7 +16,7 @@
     width:100%;
     line-height: 80px;
     font-size: 1.4rem;
-    background: linear-gradient(45deg, red, red);
+    background: linear-gradient(45deg, #c3073f, #950740);
     font-family: 'Anton', sans-serif;
 }
 
