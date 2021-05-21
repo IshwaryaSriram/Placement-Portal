@@ -28,7 +28,7 @@ CREATE TABLE JobDetails
   ApplDeadline DATE NOT NULL,
   CompanyId INT NOT NULL,
   PRIMARY KEY (JobId),
-  FOREIGN KEY (CompanyId) REFERENCES Entity(CompanyId)
+  FOREIGN KEY (CompanyId) REFERENCES CompanyProfile(CompanyId)
 );
 
 CREATE TABLE EligibilityCriteria
@@ -39,7 +39,7 @@ CREATE TABLE EligibilityCriteria
   JobId INT NOT NULL,
   CompanyId INT NOT NULL,
   FOREIGN KEY (JobId) REFERENCES JobDetails(JobId),
-  FOREIGN KEY (CompanyId) REFERENCES Entity(CompanyId)
+  FOREIGN KEY (CompanyId) REFERENCES CompanyProfile(CompanyId)
 );
 
 CREATE TABLE Alumni
@@ -55,7 +55,7 @@ CREATE TABLE Alumni
   CompanyId INT NOT NULL,
   PRIMARY KEY (AlumniId),
   FOREIGN KEY (JobId) REFERENCES JobDetails(JobId),
-  FOREIGN KEY (CompanyId) REFERENCES Entity(CompanyId)
+  FOREIGN KEY (CompanyId) REFERENCES CompanyProfile(CompanyId)
 );
 
 CREATE TABLE StudentLogin
