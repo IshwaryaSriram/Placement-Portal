@@ -55,7 +55,7 @@
                     
                     <li>
                         
-                        <a href="#">
+                        <a href="../../mainpage/index.html">
                         <div class ="tablink border-grey">
                         <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
                         <span class="title">Sign Out</span>

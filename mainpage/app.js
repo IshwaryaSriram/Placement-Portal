@@ -16,6 +16,8 @@ const highlightMenu = () => {
     const homeMenu = document.querySelector('#home-page')
     const aboutMenu = document.querySelector('#about-page')
     const servicesMenu = document.querySelector('#services-page')
+    const signupMenu = document.querySelector('#signup-page')
+
     let scrollPos = window.scrollY
     //to find out pixels of diff parts of the page
     console.log(scrollPos);
@@ -35,6 +37,12 @@ const highlightMenu = () => {
     else if(window.innerWidth > 960 && scrollPos <1800){
         servicesMenu.classList.add('highlight')
         aboutMenu.classList.remove('highlight')
+        signupMenu.classList.remove('highlight')
+        return
+    }
+    else if(window.innerWidth > 960 && scrollPos <2000){
+        signupMenu.classList.add('highlight')
+        servicesMenu.classList.remove('highlight')
         return
     }
 
