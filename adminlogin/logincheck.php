@@ -8,7 +8,7 @@
         $user = $_POST['admin'];
         $pass = $_POST['password'];
         
-        $sql ="select * from admintable where adminUserId = '$user' AND adminpass = '$pass'";
+        $sql ="SELECT * from adminlogin where AdminId = '$user' AND Pwd = '$pass'";
         $query = mysqli_query($connection,$sql);
         $row = mysqli_num_rows($query);
             
