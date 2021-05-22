@@ -20,7 +20,7 @@ if (isset($_POST['ressub'])) { // if save button on the form is clicked
     // name of the uploaded file
     //var_dump($_POST);
     $sid=$_POST['studentid'];
-    $rid=$_POST['rno'];
+    // $rid=$_POST['rno'];
     $dept=$_POST['dept'];
     $gradyear=$_POST['gradyear'];
     $gpa=$_POST['gpa'];
@@ -46,9 +46,9 @@ if (isset($_POST['ressub'])) { // if save button on the form is clicked
         // move the uploaded (temporary) file to the specified destination
         if (move_uploaded_file($file, $destination)) {
             $stmt = Database::$conn->prepare("INSERT INTO studentresume 
-            (studentid,resumeid,cgpa,mark12,mark10,department,gradyear,filename,file) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssssssss", $sid,$rid,$gpa,$mark12,$mark10,$dept,$gradyear,$filename,$file);
+            (studentid,cgpa,mark12,mark10,department,gradyear,filename,file) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("ssssssss", $sid,$gpa,$mark12,$mark10,$dept,$gradyear,$filename,$file);
             $res= $stmt->execute();
             if(!$res)
                 echo("Error: ".$stmt->error);
