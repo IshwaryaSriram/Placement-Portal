@@ -15,32 +15,20 @@
 <html>
 <head>
 	<title>Student Home Page</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="styl.css">
+	<?php include 'links.php'?>
 </head>
-<body>
-
-<div class="header">
-	<h2>Student Home Page</h2>
-</div>
-<div class="content">
-  	<!-- notification message -->
-  	<?php if (isset($_SESSION['success'])) : ?>
-      <div class="error success" >
-      	<h3>
-          <?php 
-          	echo $_SESSION['success']; 
-          	unset($_SESSION['success']);
-          ?>
-      	</h3>
-      </div>
-  	<?php endif ?>
-
-    <!-- logged in user information -->
-    <?php  if (isset($_SESSION['username'])) : ?>
-    	<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-    	<p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
-    <?php endif ?>
-</div>
-		
+<body style="background-color: black;">
+	<!--styling using bootstrap classes -->
+    <div class="container center-div shadow ">
+        <div class="heading text-center text-white mb-5">Student HOME Page</div>
+           	<!-- logged in user information -->
+			<div style="text-align: center;">
+				<?php  if (isset($_SESSION['username'])) : ?>
+					<p>Welcome <strong><?php echo $_SESSION['username']."<br>"; ?></strong></p>
+					<p><a href="index.php?logout='1'" style="color:red;">Logout</a> </p>
+				<?php endif ?>
+			</div>	
+    </div>
 </body>
 </html>
