@@ -1,3 +1,13 @@
+<?php
+session_start(); 
+
+if (!isset($_SESSION['username'])) {
+  $_SESSION['msg'] = "You must log in first";
+  header('location: ../login.php');
+}
+
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -18,7 +28,7 @@
         <div class="user-details">
           <div class="input-box">
             <span class="details">Student ID</span>
-            <input type="text" name="studentid" placeholder="Enter your ID" required id="studentid">
+            <input type="text" name="studentid" value="<?php echo $_SESSION['username'];?>" placeholder="Enter your ID" required id="studentid">
           </div>
           <div class="input-box">
             <span class="details">Email</span>

@@ -84,7 +84,7 @@ if(isset($_POST['submit']))
     if($sql)
     {
         echo "<script>alert('Data inserted');</script>";
-        echo "<script>location.replace('resumeform.html');</script>";
+        echo "<script>location.replace('../dashboard/mainindex.php');</script>";
     }
     else
     {

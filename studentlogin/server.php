@@ -46,7 +46,20 @@ if (isset($_POST['reg_user'])) {
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $username;
   	$_SESSION['success'] = "You are now logged in";
-  	header('location: index.php');
+    
+    if ($_COOKIE['username']!=$_SESSION['username'])
+    {
+        setcookie("username", $_SESSION['username'], time() + (10 * 365 * 24 * 60 * 60));
+        header('Location: form/form.php');
+        exit();
+    }
+    else
+    {
+        header('Location: dashboard.php');
+        exit();
+    }
+
+  	//header('location: index.php');
   }
 }
 
