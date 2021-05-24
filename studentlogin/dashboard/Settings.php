@@ -52,7 +52,7 @@
         </tr>
 	    <tr>
             <td>Action</td>
-		    <td><a href="update-process.php?id=<?php echo $row["id"]; ?>">Update</a></td>
+		    <td><a href="updatesettings.php?StudentId=<?php echo $row["StudentId"]; ?>">Update</a></td>
         </tr>
 			<?php
 			
