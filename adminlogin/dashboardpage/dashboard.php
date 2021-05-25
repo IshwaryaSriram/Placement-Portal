@@ -1,9 +1,17 @@
+<?php require_once 'dbconnect.php' ?>
 <div id="Dashboard" class="portion" > 
 <!-- style="display:none"> -->
     <div class="cardBox">
                 <div class="card">
                     <div>
-                        <div class="numbers">1,042</div>
+                        <div class="numbers">
+                        <?php
+                            $sql = "SELECT * FROM studentlogin";
+                            $result = mysqli_query(Database::$conn,$sql);
+                            $rowCount = mysqli_num_rows($result);
+                            echo($rowCount);
+                        ?>
+                        </div>
                         <div class="cardName">Total Students</div>
                     </div>
                     <div class="iconBox">
@@ -14,7 +22,14 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">1,042</div>
+                        <div class="numbers">
+                        <?php
+                            $sql = "SELECT * FROM companylogin";
+                            $result = mysqli_query(Database::$conn,$sql);
+                            $rowCount = mysqli_num_rows($result);
+                            echo($rowCount);
+                        ?>
+                        </div>
                         <div class="cardName">Total Comapnies</div>
                     </div>
                     <div class="iconBox">
@@ -25,7 +40,14 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">1,042</div>
+                        <div class="numbers">
+                        <?php
+                            $sql = "SELECT * FROM studentdetails where status = 'n'";
+                            $result = mysqli_query(Database::$conn,$sql);
+                            $rowCount = mysqli_num_rows($result);
+                            echo($rowCount);
+                        ?>                        
+                        </div>
                         <div class="cardName">Students Active</div>
                     </div>
                     <div class="iconBox">
@@ -36,7 +58,14 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">1,042</div>
+                        <div class="numbers">
+                        <?php
+                            $sql = "SELECT * FROM studentdetails where status = 'y'";
+                            $result = mysqli_query(Database::$conn,$sql);
+                            $rowCount = mysqli_num_rows($result);
+                            echo($rowCount);
+                        ?>   
+                        </div>
                         <div class="cardName">Students Placed</div>
                     </div>
                     <div class="iconBox">

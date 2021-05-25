@@ -123,7 +123,7 @@ include_once 'dbconnect.php';
 if(count($_POST)>0){
     // var_dump($_POST);
     if(mysqli_query(Database::$conn,"update studentdetails set 
-        FirstName='".$_POST['FirstName']."'"))
+        FirstName='".$_POST['FirstName']."', LastName='".$_POST['LastName']."'"))
         {
             $message="Success";
             echo "<script>alert('Updated Successfully');</script>";
@@ -132,6 +132,7 @@ if(count($_POST)>0){
         else{
             echo mysqli_error(Database::$conn);
         }
+
 }
 // var_dump($_GET);
 $result = mysqli_query(Database::$conn,"SELECT * FROM studentdetails WHERE StudentId='" . $_GET['StudentId'] . "'");
