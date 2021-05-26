@@ -123,7 +123,9 @@ include_once 'dbconnect.php';
 if(count($_POST)>0){
     // var_dump($_POST);
     if(mysqli_query(Database::$conn,"update studentdetails set 
-        FirstName='".$_POST['FirstName']."', LastName='".$_POST['LastName']."'"))
+        FirstName='".$_POST['FirstName']."', LastName='".$_POST['LastName']."'
+        , EmailId='".$_POST['EmailId']."', MobileNumber='".$_POST['MobileNumber']."'
+        , Dob='".$_POST['Dob']."'"))
         {
             $message="Success";
             echo "<script>alert('Updated Successfully');</script>";
