@@ -4,8 +4,8 @@
     <title>Admin Login</title>
     <?php include 'links.php' ?>
     <!-- <link rel="stylesheet" type="text/css" href="style.css"><php? echo time() ?> -->
-    <link rel="stylesheet" type="text/css" href="styl.css"><php? echo time() ?>
-
+    <link rel="stylesheet" type="text/css" href="styles.css"><php? echo time() ?>
+    
 </head>
 <body>
 <header>
