@@ -125,7 +125,7 @@ if(count($_POST)>0){
     if(mysqli_query(Database::$conn,"update studentdetails set 
         FirstName='".$_POST['FirstName']."', LastName='".$_POST['LastName']."'
         , EmailId='".$_POST['EmailId']."', MobileNumber='".$_POST['MobileNumber']."'
-        , Dob='".$_POST['Dob']."'"))
+        , Dob='".$_POST['Dob']."' WHERE StudentId='" . $_GET['StudentId'] . "'"))
         {
             $message="Success";
             echo "<script>alert('Updated Successfully');</script>";
