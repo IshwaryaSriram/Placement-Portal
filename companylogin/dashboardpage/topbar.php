@@ -7,6 +7,6 @@
     </label>
     </div>
     <div class="user">
-        <p>  Admin Name  </p>
+    <p style="margin-right:10px; margin-top:10px;"><?php echo $_SESSION['username'];?></p>
     </div>
 </div>

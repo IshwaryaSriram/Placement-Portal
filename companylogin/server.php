@@ -23,13 +23,24 @@ if (isset($_POST['login_user'])) {
     }
   
     if (count($errors) == 0) {
-        $password = md5($password);
-        $query = "SELECT * FROM studentlogin WHERE StudentId='$username' AND pwd='$password'";
+        //$password = md5($password);
+        $query = "SELECT * FROM companylogin WHERE CompanyId='$username' AND pwd='$password'";
         $results = mysqli_query($db, $query);
         if (mysqli_num_rows($results) == 1) {
           $_SESSION['username'] = $username;
           $_SESSION['success'] = "You are now logged in";
-          header('location: dashboardpage/mainindex.php');
+          if ($_COOKIE['username']!=$_SESSION['username'])
+            {
+                setcookie("username", $_SESSION['username'], time() + (10 * 365 * 24 * 60 * 60));
+                header('Location: form/form.php');
+                exit();
+            }
+            else
+            {
+                header('Location: dashboardpage/mainindex.php');
+                exit();
+            }
+          //header('location: dashboardpage/mainindex.php');
         }else {
             array_push($errors, "Wrong username/password combination");
         }
