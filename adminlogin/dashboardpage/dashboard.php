@@ -30,7 +30,7 @@
                             echo($rowCount);
                         ?>
                         </div>
-                        <div class="cardName">Total Comapnies</div>
+                        <div class="cardName">Total Companies</div>
                     </div>
                     <div class="iconBox">
                         <i class="fas fa-briefcase"></i>
@@ -89,7 +89,24 @@
                                 <td>Status</td>
                                 </tr>
                         </thead>
-                        <tbody>
+                        <?php
+                            $sql = "SELECT * FROM studentdetails";
+                            $result = mysqli_query(Database::$conn,$sql);
+                            $rowCount = mysqli_num_rows($result);
+                            // echo($rowCount);
+                            if($rowCount > 0){
+                                while ($row = mysqli_fetch_assoc($result)){
+                                    echo "<tr><td>".$row['StudentId']."</td><td>".$row['FirstName']."</td><td>";
+                                    if($row['Status']=='y'){
+                                        echo "<td><span class='status placed'>".$row['Status']."</span></td><br>";
+                                    }
+                                    if($row['Status']=='n'){
+                                        echo "<td><span class='status pending'>".$row['Status']."</span></td><br>";
+                                    }
+                                }
+                            }
+                        ?>
+                        <!-- <tbody>
                             <tr>
                                 <td> STUDENT1</td>
                                 <td>HEllo</td>
@@ -116,7 +133,7 @@
                                 <td><span class="status placed">placed</span></td>
                                 
                             </tr>
-                        </tbody>
+                        </tbody> -->
                     </table>
                 </div>
 
@@ -125,7 +142,24 @@
                         <h2>Side</h2>
                     </div>
                     <table>
-                        <tbody>
+                        <thead>
+                            <tr>
+                                <td>Company Name</td>
+                                <td>Vacancy Count</td>
+                            </tr>
+                        </thead>
+                        <?php
+                            $sql = "SELECT * FROM companyprofile";
+                            $result = mysqli_query(Database::$conn,$sql);
+                            $rowCount = mysqli_num_rows($result);
+                            // echo($rowCount);
+                            if($rowCount > 0){
+                                while ($row = mysqli_fetch_assoc($result)){
+                                    echo "<tr><td>".$row['CompanyName']."</td><td>".$row['VaccanciesCount']."</td></tr>";
+                                }
+                            }
+                        ?>
+                        <!-- <tbody>
                             <tr>
                                 <td width="60px"><div class="imgBx"><img src="companylogo.jpg" ></div></td>
                                 <td><h4>Comapny Name<br> <span>Type</span></spacn></h4></td>
@@ -142,7 +176,7 @@
                                 <td width="60px"><div class="imgBx"><img src="companylogo.jpg" ></div></td>
                                 <td><h4>Comapny Name<br> <span>Type</span></spacn></h4></td>
                             </tr>
-                        </tbody>
+                        </tbody> -->
                     </table>
                 </div>
 

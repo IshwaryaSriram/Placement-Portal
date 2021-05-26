@@ -258,15 +258,12 @@ body > div.container > div > ul > li:nth-child(2) > div */
     color: white;
     text-decoration: none;
     border-radius: 10px;
-
-
 }
-
 
 .details table{
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
+    /* margin-top: 10px; */
 }
 
 .details table thead td{
