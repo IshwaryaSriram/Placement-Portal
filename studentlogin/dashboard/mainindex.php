@@ -28,6 +28,8 @@
     require_once 'students.php';
     require_once 'Company.php';
     require_once 'Settings.php';
+    require_once 'script.php';
+
 ?>
 
 </div>

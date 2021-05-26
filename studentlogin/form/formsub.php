@@ -44,16 +44,40 @@ if (isset($_POST['ressub'])) { // if save button on the form is clicked
         echo "File too large!";
     } else {
         // move the uploaded (temporary) file to the specified destination
-        if (move_uploaded_file($file, $destination)) {
-            $stmt = Database::$conn->prepare("INSERT INTO studentresume 
-            (studentid,cgpa,mark12,mark10,department,gradyear,filename,file) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("ssssssss", $sid,$gpa,$mark12,$mark10,$dept,$gradyear,$filename,$file);
-            $res= $stmt->execute();
-            if(!$res)
-                echo("Error: ".$stmt->error);
+        if (move_uploaded_file($file, $destination)) 
+        {
+            $res=mysqli_query(Database::$conn,"select * from studentresume where StudentId='".$sid."'");
+            echo mysqli_error(Database::$conn);
+            $row=mysqli_fetch_array($res,MYSQLI_ASSOC);
+            if($row)
+            {
+                $stmt = Database::$conn->prepare("UPDATE studentresume set
+                cgpa =? ,mark12=?,mark10=?,department=?,gradyear=?,filename=?,file=? where StudentId=?
+                    ");
+                $stmt->bind_param("ssssssss",$gpa,$mark12,$mark10,$dept,$gradyear,$filename,$file,$sid);
+                $rest= $stmt->execute();
+                if(!$rest){
+                    echo("Error: ".$stmt->error);}
+                else
+                {
+                    $message="Success";
+                    echo "<script>alert('Updated Successfully');</script>";
+                    echo "<script>location.replace('../dashboard/mainindex.php');</script>";
+                }
+            }
             else
-                echo "<script>alert('file upload success')</script>";
+            {
+                $stmt = Database::$conn->prepare("INSERT INTO studentresume 
+                (studentid,cgpa,mark12,mark10,department,gradyear,filename,file) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                $stmt->bind_param("ssssssss", $sid,$gpa,$mark12,$mark10,$dept,$gradyear,$filename,$file);
+                $res= $stmt->execute();
+                if(!$res)
+                    echo("Error: ".$stmt->error);
+                else
+                    echo "<script>alert('Resume upload success')</script>";
+                    echo "<script>location.replace('../dashboard/mainindex.php');</script>";
+            }
         }
     }
 }

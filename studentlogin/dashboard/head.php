@@ -1,6 +1,3 @@
-<?php
-    require_once 'script.php';
-?>
 <!DOCTYPE <!DOCTYPE html>
 <html>
     <head>
