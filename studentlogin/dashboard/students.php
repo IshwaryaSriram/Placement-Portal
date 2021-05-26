@@ -235,11 +235,17 @@ form .user-details .row .input-float{
 <div id="Students" class="portion" style="display:none">
                 <!-- <h2>Students</h2>
                 <p>Students section</p> -->
-
+  <?php
+    require_once 'dbconnect.php';
+    $res=mysqli_query(Database::$conn,"select * from studentresume where StudentId='".$_SESSION['username']."'");
+    echo mysqli_error(Database::$conn);
+    $row=mysqli_fetch_array($res,MYSQLI_ASSOC);
+    // var_dump($row);
+  ?>
   <div class="rescontainer">
     <div class="title">Resume Details</div>
     <div class="content">
-      <form action="formsub.php" method="POST" enctype="multipart/form-data" autocomplete="off">
+      <form action="../form/formsub.php" method="POST" enctype="multipart/form-data" autocomplete="off">
       <div class="user-details">
 
           <div class="input-box">
@@ -250,30 +256,30 @@ form .user-details .row .input-float{
 
           <div class="input-box">
             <span class="spandetails">Department</span>
-            <input type="text" name="dept" placeholder="Enter your Department" required id="Department">
+            <input type="text" name="dept" value="<?php if($row) {echo $row['Department'];}?>" placeholder="Enter your Department" required id="Department">
           </div>
 
           
           <div class="input-box">
             <span class="spandetails">Year of Graduation</span>
-            <input type="text" name="gradyear" placeholder="Enter year of Graduation" required id="gradyear">
+            <input type="text" name="gradyear" value="<?php if($row) {echo $row['GradYear'];}?>" placeholder="Enter year of Graduation" required id="gradyear">
           </div>
 
           <div class="row" >
             
             <div class="input-float"> 
               <span class="mark">CGPA</span>
-              <input type="number" step="0.01" name="gpa" placeholder="Enter your CGPA" required>
+              <input type="number" step="0.01" name="gpa" value="<?php if($row) {echo $row['CGPA'];}?>" placeholder="Enter your CGPA" required>
             </div>
 
             <div class="input-float">
               <span class="mark">Class 12 percentage</span>
-              <input type="number" step="0.01" name="mark12" placeholder="Enter %" required>
+              <input type="number" step="0.01" name="mark12" value="<?php if($row) {echo $row['mark12'];}?>" placeholder="Enter %" required>
             </div>
 
             <div class="input-float">
               <span class="mark">Class 10 percentage</span>
-              <input type="number" step="0.01" name="mark10" placeholder="Enter %" required>
+              <input type="number" step="0.01" name="mark10" value="<?php if($row) {echo $row['mark10'];}?>" placeholder="Enter %" required>
             </div>
 
          </div>
@@ -282,10 +288,11 @@ form .user-details .row .input-float{
         <div class ="input-box input-file">
           <span class="spandetails">Uplaod Resume</span>
           <p style="color: grey; font-size: smaller;">Upload .pdf file</p>
-          <label for="file-upload" class="custom-file-upload">
+        <input id="file-upload" value="<?php if($row) {echo $row['file'];}?>" type="file" name="resumefile" required accept=".pdf" />
+        <label for="file-upload" class="custom-file-upload">
             Upload
         </label>
-        <input id="file-upload" type="file" name="resumefile" required accept=".pdf" />
+        <div id="file-upload-filename"><?php if($row) {echo $row['filename'];}?></div>
          
         </div>
         
