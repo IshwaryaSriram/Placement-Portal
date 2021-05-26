@@ -54,6 +54,10 @@
             <td>Action</td>
 		    <td><a href="updatesettings.php?StudentId=<?php echo $row["StudentId"]; ?>">Update</a></td>
         </tr>
+        <tr>
+            <td>Action</td>
+		    <td><a href="changepass.php?StudentId=<?php echo $row["StudentId"]; ?>">Change Password</a></td>
+        </tr>
 			<?php
 			
 			}
