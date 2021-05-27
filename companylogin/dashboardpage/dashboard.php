@@ -153,7 +153,25 @@
                         <h2>Side</h2>
                     </div>
                     <table>
-                        <tbody>
+                        <thead>
+                                <tr>
+                                    <td>Job Id</td>
+                                    <td>Vacancy Count</td>
+                                </tr>
+                        </thead>
+                        <?php
+                            $sql = "SELECT * FROM jobdetails WHERE jobdetails.CompanyId='" . $_SESSION['username'] . "'";
+                            $result = mysqli_query(Database::$conn,$sql);
+                            $rowCount = mysqli_num_rows($result);
+                                // echo($rowCount);
+                            if($rowCount > 0){
+                                while ($row = mysqli_fetch_assoc($result)){
+                                    echo "<tr><td>".$row['JobId']."</td><td>".$row['Vacancies']."</td></tr>";
+                                }
+                            }
+                        ?>
+
+                        <!-- <tbody>
                             <tr>
                                 <td width="60px"><div class="imgBx"><img src="companylogo.jpg" ></div></td>
                                 <td><h4>Comapny Name<br> <span>Type</span></spacn></h4></td>
@@ -170,7 +188,7 @@
                                 <td width="60px"><div class="imgBx"><img src="companylogo.jpg" ></div></td>
                                 <td><h4>Comapny Name<br> <span>Type</span></spacn></h4></td>
                             </tr>
-                        </tbody>
+                        </tbody> -->
                     </table>
                 </div>
 
