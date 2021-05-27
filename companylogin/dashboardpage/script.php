@@ -23,5 +23,13 @@
             document.getElementById(sectionName).style.display = "block";
             evt.currentTarget.firstElementChild.className += " border-red";
             }
+
+    $(".dept").change(function () {
+    //check if the selected option is others
+    if (this.value === "other") {
+        //toggle textbox visibility
+        $("#other-text").toggle();
+    }
+});
             
 </script>

@@ -17,45 +17,73 @@ function insert($id, $email, $name, $city,$phno)
 
 
 
-if (isset($_POST['ressub'])) { // if save button on the form is clicked
-    // name of the uploaded file
-    //var_dump($_POST);
-    $sid=$_POST['studentid'];
-    $rid=$_POST['rno'];
-    $dept=$_POST['dept'];
-    $gradyear=$_POST['gradyear'];
+if (isset($_POST['ressub'])) { 
+    // print_r($_POST);
+    $errors=array();
+    $cid=$_POST['CompanyId'];
+    $jid=$_POST['JobId'];
+    $desc=$_POST['desc'];
+    $ad=$_POST['deadline'];
+    $start=$_POST['Start'];
+    $city=$_POST['City'];
+    $state=$_POST['State'];
+    $mode=$_POST['Mode'];
+    $salary=$_POST['Salary'];
+    $vac=$_POST['Vacancies'];
+    $gradyear=$_POST['GradYear'];
     $gpa=$_POST['gpa'];
     $mark12=$_POST['mark12'];
     $mark10=$_POST['mark10'];
-    $filename = $_FILES['resumefile']['name'];
-
     
-    $destination = 'uploads/' . $filename;
+    $checkbox1=$_POST['dept'];  
+    $chk="";  
+    foreach($checkbox1 as $chk1)  
+    {  
+        if($chk1=="other")
+        {
+            continue;
+        }
 
-    
-    $extension = pathinfo($filename, PATHINFO_EXTENSION);
+        $chk .= $chk1.",";  
+    }  
+    $chk.= $_POST['otherdept'];
 
-    // the physical file on a temporary uploads directory on the server
-    $file = $_FILES['resumefile']['tmp_name'];
-    $size = $_FILES['resumefile']['size'];
+    // var_dump($chk);
+    $job_check_query = "SELECT * FROM jobdetails WHERE JobId='$jid' LIMIT 1";
+    $result = mysqli_query(Database::$conn, $job_check_query);
+    $user = mysqli_fetch_assoc($result);
+  
+    if ($user) { // if user exists
+        if ($user['JobId'] === $jid) {
+          array_push($errors, "JobId already exists");
+        }
+    }
+    // print_r($errors);
+    if(count($errors)==0)
+    {
 
-    if (!in_array($extension, ['pdf'])) {
-        echo "You file extension must be .pdf ";
-    } elseif ($_FILES['resumefile']['size'] > 1000000) { // file shouldn't be larger than 1Megabyte
-        echo "File too large!";
-    } else {
-        // move the uploaded (temporary) file to the specified destination
-        if (move_uploaded_file($file, $destination)) {
-            $stmt = Database::$conn->prepare("INSERT INTO studentresume 
-            (studentid,resumeid,cgpa,mark12,mark10,department,gradyear,filename,file) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssssssss", $sid,$rid,$gpa,$mark12,$mark10,$dept,$gradyear,$filename,$file);
+    $stmt = Database::$conn->prepare("INSERT INTO jobdetails 
+            (CompanyId, JobId, JobDesc, ApplDeadline, Start,Mode, Salary, City, State, Vacancies)
+                VALUES (?,?,?,?,?,?,?,?,?,?)");
+            $stmt->bind_param("ssssssssss",$cid,$jid,$desc,$ad,$start,$mode,$salary,$city, $state,$vac);
             $res= $stmt->execute();
             if(!$res)
                 echo("Error: ".$stmt->error);
             else
-                echo "<script>alert('file upload success')</script>";
-        }
+                echo "<script>alert('Job upload success')</script>";
+
+    $stmt = Database::$conn->prepare("INSERT INTO eligibilitycriteria 
+            (JobId, cgpa,mark12,mark10,department,gradyear)
+                VALUES (?,?,?,?,?,?)");
+            $stmt->bind_param("ssssss",$jid,$gpa,$mark12,$mark10,$chk,$gradyear);
+            $res= $stmt->execute();
+            if(!$res)
+                echo("Error: ".$stmt->error);
+            else
+            {
+                echo "<script>alert('Criteria upload success')</script>";
+                echo "<script>location.replace('../dashboardpage/mainindex.php');</script>";
+            }
     }
 }
 

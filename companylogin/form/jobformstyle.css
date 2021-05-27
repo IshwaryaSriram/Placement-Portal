@@ -4,8 +4,18 @@
 input{
   color:black;
 }
-
-
+form > div.user-details > p{
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 2px;
+  font-size: 1.5em;
+  color: grey;
+}
+form > div.user-details > div > span{
+  padding: 0px;
+  padding-top: 20px;;
+}
 .rescontainer{
   width: 100%;  
   background-color: #1A1A1D;
@@ -48,6 +58,28 @@ form .input-text span.details{
   margin-bottom: 5px;
   color: whitesmoke;
 }
+
+form > div.user-details > h3.heading{
+  display: inline;
+  margin: 20px 0;
+  height: fit-content;
+}
+
+form > div.dept-check{
+  justify-content: space-between;
+  /* display: inline; */
+  margin: 20px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 20px;
+}
+#other-text{
+  display: none;
+  border-radius: 5px;
+  outline: none;
+  font-size: 16px;
+  color: black;
+}
 .user-details .input-box input{
   height: 45px;
   width: 100%;
@@ -74,6 +106,8 @@ form > div.user-details > div.rowform{
   grid-template-columns: repeat(3,1fr);
   height: 80px;
   column-gap: 4px;
+  padding: 10px 0px;
+  width: 100%;
 }
 textarea {
   resize: none;
@@ -81,8 +115,13 @@ textarea {
   outline: none;
   padding: 10px;
   font-size: 14px;
+  color:black;
   margin-left: 35px;
 }
+
+
+ 
+
 form > div.user-details > div.input-text{
   height: 165px;
   width: 100%;
