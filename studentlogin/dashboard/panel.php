@@ -36,7 +36,7 @@
                         <a href="#" onclick="openTab(event, 'Companies')">
                         <div class ="tablink border-grey">
                         <span class="icon"><i class="fas fa-building"></i></span>
-                        <span class="title">Companies</span>
+                        <span class="title">Application</span>
                         </div>
                     </a>
                     <!-- </div> -->
