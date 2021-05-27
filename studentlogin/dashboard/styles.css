@@ -230,8 +230,7 @@ body > div.container > div > ul > li:nth-child(2) > div */
     display: grid;
     padding-top: 20px;
     gap: 20px;
-    grid-template-columns: 2fr 1fr;
-
+    /* grid-template-columns: 2fr 1fr; */
 }
 
 .details .recent{
@@ -240,6 +239,8 @@ body > div.container > div > ul > li:nth-child(2) > div */
     min-height: 530px;
     background:#1A1A1D;
     padding: 20px;
+    /* width:   100%; */
+    width: 100%;
 }
 
 .cardHeader{
@@ -258,10 +259,7 @@ body > div.container > div > ul > li:nth-child(2) > div */
     color: white;
     text-decoration: none;
     border-radius: 10px;
-
-
 }
-
 
 .details table{
     width: 100%;
@@ -313,7 +311,7 @@ body > div.container > div > ul > li:nth-child(2) > div */
     background: #f8b711;
 }
 
-.details .recentComm{
+/* .details .recentComm{
     position: relative;
     display: grid;
     min-height: 530px;
@@ -357,10 +355,10 @@ body > div.container > div > ul > li:nth-child(2) > div */
 .details .recentComm table tr td h4 span{
     font-size: 14px;
     color: grey;
-}
+} */
 
 /* responsive  */
-@media (max-width: 992px){
+/* @media (max-width: 992px){
     .navigation{
         left:-300px;
     }
@@ -419,4 +417,4 @@ body > div.container > div > ul > li:nth-child(2) > div */
         left:0;
     }
 
-}
+} */

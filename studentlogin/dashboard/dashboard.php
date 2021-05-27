@@ -147,7 +147,7 @@
                     </table>
                 </div>
 
-                <div class="recentComm">
+                <!-- <div class="recentComm">
                     <div class="cardHeader">
                         <h2>Side</h2>
                     </div>
@@ -171,7 +171,7 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
+                </div> -->
 
             </div>
 
