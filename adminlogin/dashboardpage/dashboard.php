@@ -78,7 +78,7 @@
             <div class="details">
                 <div class="recent">
                     <div class="cardHeader">
-                        <h2>Table</h2>
+                        <h2>Students</h2>
                         <a href="#" class="btn">View All</a>
                     </div>
                     <table>
@@ -87,7 +87,7 @@
                                 <td>Student ID</td>
                                 <td>Name</td>
                                 <td>Status</td>
-                                </tr>
+                            </tr>
                         </thead>
                         <?php
                             $sql = "SELECT * FROM studentdetails";
@@ -139,7 +139,7 @@
 
                 <div class="recentComm">
                     <div class="cardHeader">
-                        <h2>Side</h2>
+                        <h2>List of Jobs</h2>
                     </div>
                     <table>
                         <thead>

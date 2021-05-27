@@ -22,33 +22,38 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers"> 
-                        <!-- we need to edit this to show the companies that this student has applied to -->
+                        <div class="numbers">
                         <?php
-                            $sql = "SELECT * FROM studentlogin";
+                            $sql = "SELECT * FROM jobappl";
                             $result = mysqli_query(Database::$conn,$sql);
                             $rowCount = mysqli_num_rows($result);
                             echo($rowCount);
                         ?>
                         </div>
-                        <div class="cardName">Companies Applied to</div>
+                        <div class="cardName">Total jobs</div>
                     </div>
                     <div class="iconBox">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    
+                        <i class="fas fa-id-card"></i>
+                    </div>                    
                 </div>
 
                 <div class="card">
                     <div>
-                        <div class="numbers">1,042</div>
-                        <div class="cardName">Companies not applied to</div>
+                        <div class="numbers"> 
+                        <!-- we need to edit this to show the companies that this student has applied to -->
+                        <?php
+                            $sql = "SELECT * FROM jobappl where jobappl.studentid ='" . $_SESSION['username'] . "'";
+                            $result = mysqli_query(Database::$conn,$sql);
+                            $rowCount = mysqli_num_rows($result);
+                            echo($rowCount);
+                        ?>
+                        </div>
+                        <div class="cardName">Jobs Applied to</div>
                     </div>
                     <div class="iconBox">
-                        <i class="fas fa-id-card"></i>
-                    </div>
-                    
-                </div>
+                        <i class="fas fa-briefcase"></i>
+                    </div>                    
+                </div>            
 
                 <div class="card">
                     <div>
@@ -90,7 +95,7 @@
                                 <td>Company ID</td>
                                 <td>Company Name</td>
                                 <td>Status</td>
-                                </tr>
+                            </tr>
                         </thead>
                         <?php                             
                             // var_dump($_SESSION);
