@@ -96,7 +96,7 @@
                             // echo($rowCount);
                             if($rowCount > 0){
                                 while ($row = mysqli_fetch_assoc($result)){
-                                    echo "<tr><td>".$row['StudentId']."</td><td>".$row['FirstName']."</td><td>";
+                                    echo "<tr><td>".$row['StudentId']."</td><td>".$row['FirstName']."</td>";
                                     if($row['Status']=='y'){
                                         echo "<td><span class='status placed'>"."Placed"."</span></td><br>";
                                     }
@@ -144,18 +144,20 @@
                     <table>
                         <thead>
                             <tr>
+                                <td>Job Id</td>
                                 <td>Company Name</td>
                                 <td>Vacancy Count</td>
                             </tr>
                         </thead>
                         <?php
-                            $sql = "SELECT * FROM companyprofile";
+                            $sql = "SELECT * FROM jobdetails inner join companyprofile
+                            on jobdetails.CompanyId = companyprofile.CompanyId";
                             $result = mysqli_query(Database::$conn,$sql);
                             $rowCount = mysqli_num_rows($result);
                             // echo($rowCount);
                             if($rowCount > 0){
                                 while ($row = mysqli_fetch_assoc($result)){
-                                    echo "<tr><td>".$row['CompanyName']."</td><td>".$row['VaccanciesCount']."</td></tr>";
+                                    echo "<tr><td>".$row['JobId']."</td><td>".$row['CompanyName']."</td><td>".$row['Vacancies']."</td></tr>";
                                 }
                             }
                         ?>
