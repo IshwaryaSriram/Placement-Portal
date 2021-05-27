@@ -80,11 +80,11 @@
         
 	    <tr>
             <td>Details</td>
-		    <td><a href="updatesettings.php?CompanyId=<?php echo $row['CompanyId']; ?>">Update</a></td>
+		    <td><button class="pwdbtn"><a href="updatesettings.php?CompanyId=<?php echo $row['CompanyId']; ?>">Update</a></button></td>
         </tr>
         <tr>
             <td>Password</td>
-		    <td><a href="changepass.php?CompanyId=<?php echo $row['CompanyId']; ?>">Change Password</a></td>
+            <td><button class="pwdbtn"><a href="changepass.php?StudentId=<?php echo $row["CompanyId"]; ?>">Change Password</a></button></td>
         </tr>
 			<?php
 			
