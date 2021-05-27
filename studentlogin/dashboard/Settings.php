@@ -92,11 +92,11 @@
         </tr>
 	    <tr>
             <td>Details</td>
-		    <td><a href="updatesettings.php?StudentId=<?php echo $row["StudentId"]; ?>">Update</a></td>
+		    <td><button class="pwdbtn"><a href="updatesettings.php?StudentId=<?php echo $row["StudentId"]; ?>">Update</a></button></td>
         </tr>
         <tr>
             <td>Password</td>
-		    <td><a href="changepass.php?StudentId=<?php echo $row["StudentId"]; ?>">Change Password</a></td>
+		    <td><button class="pwdbtn"><a href="changepass.php?StudentId=<?php echo $row["StudentId"]; ?>">Change Password</a></button></td>
         </tr>
 			<?php
 			

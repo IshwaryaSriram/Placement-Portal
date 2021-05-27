@@ -310,111 +310,13 @@ body > div.container > div > ul > li:nth-child(2) > div */
 .pending{
     background: #f8b711;
 }
-
-/* .details .recentComm{
+.pwdbtn{
+    background: #950740;
+    padding: 3px 6px;
+    border-radius: 4px;
     position: relative;
-    display: grid;
-    min-height: 530px;
-    background: #1A1A1D;
-    padding:20px;
+    outline: none;
 }
-
-.details .recentComm .imgBx
-{
-    position: relative;
-    width: 40px;
-    height:40px;
-    border-radius: 50%;
-    overflow: hidden;
-}
-
-.details .recentComm .imgBx img{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    object-fit: cover;
-}
-
-.details .recentComm table tr:hover,
-.details .recentComm table tr:hover td h4 span{
-    background: #4e4e50;
+.pwdbtn a{
     color: white;
 }
-
-.details .recentComm table tr td{
-    padding:7px 10px;
-}
-.details .recentComm table tr td h4{
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1.2em;
-}
-
-.details .recentComm table tr td h4 span{
-    font-size: 14px;
-    color: grey;
-} */
-
-/* responsive  */
-/* @media (max-width: 992px){
-    .navigation{
-        left:-300px;
-    }
-    .navigation.active{
-        left: 0;
-        width:300px;
-    }
-    .main{
-        width: 100%;
-        left:0;
-    }
-    .main.active{
-        width: calc(100% - 300px);
-        left:300px;
-    }
-    .cardBox{
-        grid-template-columns: repeat(2,1fr);
-    }
-    .details{
-        grid-template-columns: repeat(1,1fr);
-    }
-
-}
-
-@media (max-width:480px){
-    .cardBox{
-        grid-template-columns: repeat(1,1fr);
-    }
-    .deatils .recent{
-        overflow-x: auto;
-    }
-    .details .recent table{
-        width:600px;
-    }
-    .navigation{
-        width:100%;
-        left:-100%;
-        z-index: 1000 ;
-     }
-    .navigationactive{ 
-        width:100%;
-        left:0;
-    }
-    .toggle.active{
-        position: fixed;
-        z-index: 10000;
-        right:0;
-        left:initial;
-        
-    }
-    .toggle.active::before{
-        color: white;
-    }
-    .main,.main.active{
-        width:100%;
-        left:0;
-    }
-
-} */
