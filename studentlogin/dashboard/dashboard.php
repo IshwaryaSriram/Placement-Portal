@@ -39,8 +39,7 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers"> 
-                        <!-- we need to edit this to show the companies that this student has applied to -->
+                        <div class="numbers">
                         <?php
                             $sql = "SELECT * FROM jobappl where jobappl.studentid ='" . $_SESSION['username'] . "'";
                             $result = mysqli_query(Database::$conn,$sql);
