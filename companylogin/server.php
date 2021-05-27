@@ -29,9 +29,14 @@ if (isset($_POST['login_user'])) {
         if (mysqli_num_rows($results) == 1) {
           $_SESSION['username'] = $username;
           $_SESSION['success'] = "You are now logged in";
-          if ($_COOKIE['username']!=$_SESSION['username'])
-            {
-                setcookie("username", $_SESSION['username'], time() + (10 * 365 * 24 * 60 * 60));
+          $sqlquery="select * from companydetails where companyid='$username'";
+          $res=mysqli_query($db,$sqlquery);
+          if(mysqli_num_rows($results) == 0)
+          {
+
+        //   if ($_COOKIE['username']!=$_SESSION['username'])
+        //     {
+        //         setcookie("username", $_SESSION['username'], time() + (10 * 365 * 24 * 60 * 60));
                 header('Location: form/form.php');
                 exit();
             }
