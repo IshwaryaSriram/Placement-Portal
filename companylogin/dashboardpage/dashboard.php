@@ -1,9 +1,17 @@
+<?php require_once 'dbconnect.php' ?>
 <div id="Dashboard" class="portion" > 
 <!-- style="display:none"> -->
     <div class="cardBox">
                 <div class="card">
                     <div>
-                        <div class="numbers">1,042</div>
+                        <div class="numbers">
+                        <?php
+                            $sql = "SELECT * FROM studentlogin";
+                            $result = mysqli_query(Database::$conn,$sql);
+                            $rowCount = mysqli_num_rows($result);
+                            echo($rowCount);
+                        ?>
+                        </div>
                         <div class="cardName">Total Students</div>
                     </div>
                     <div class="iconBox">
@@ -14,8 +22,16 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">1,042</div>
-                        <div class="cardName">Total Comapnies</div>
+                        <div class="numbers">
+                        <?php
+                            $sql = "SELECT * FROM jobappl inner join jobdetails on jobappl.JobId = jobdetails.JobId
+                            where jobdetails.CompanyId ='" . $_SESSION['username'] . "'";
+                            $result = mysqli_query(Database::$conn,$sql);
+                            $rowCount = mysqli_num_rows($result);
+                            echo($rowCount);
+                        ?>
+                        </div>
+                        <div class="cardName">Students applied</div>
                     </div>
                     <div class="iconBox">
                         <i class="fas fa-briefcase"></i>
@@ -25,8 +41,16 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">1,042</div>
-                        <div class="cardName">Students Active</div>
+                        <div class="numbers">
+                        <?php
+                            $sql = "SELECT * FROM jobappl inner join jobdetails on jobappl.JobId = jobdetails.JobId
+                            where jobdetails.CompanyId ='" . $_SESSION['username'] . "' and jobappl.Status='y'";
+                            $result = mysqli_query(Database::$conn,$sql);
+                            $rowCount = mysqli_num_rows($result);
+                            echo($rowCount);
+                        ?>
+                        </div>
+                        <div class="cardName">Students Placed</div>
                     </div>
                     <div class="iconBox">
                         <i class="fas fa-id-card"></i>
@@ -36,8 +60,15 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">1,042</div>
-                        <div class="cardName">Students Placed</div>
+                        <div class="numbers">
+                        <?php
+                            $sql = "SELECT * FROM jobdetails where jobdetails.CompanyId ='" . $_SESSION['username'] . "'";
+                            $result = mysqli_query(Database::$conn,$sql);
+                            $rowCount = mysqli_num_rows($result);
+                            echo($rowCount);
+                        ?>
+                        </div>
+                        <div class="cardName">Total Jobs</div>
                     </div>
                     <div class="iconBox">
                         <i class="fas fa-box-open"></i>
@@ -55,12 +86,38 @@
                     <table>
                         <thead>
                             <tr>
+                                <td>Job ID</td>
                                 <td>Student ID</td>
                                 <td>Name</td>
                                 <td>Status</td>
                                 </tr>
                         </thead>
-                        <tbody>
+
+                        <?php                             
+                            // var_dump($_SESSION);
+
+                            $sql = "SELECT jobdetails.JobId, jobappl.studentid, studentdetails.FirstName, jobappl.Status
+                            FROM jobappl inner join studentdetails on jobappl.studentid=studentdetails.StudentId
+                            inner join jobdetails on jobdetails.JobId=jobappl.JobId
+                            WHERE jobdetails.CompanyId='" . $_SESSION['username'] . "'";
+                            $result = mysqli_query(Database::$conn,$sql);
+                            // echo(mysqlia_error($sql));
+                            $rowCount = mysqli_num_rows($result);
+                            //echo($rowCount);
+                            if($rowCount > 0){
+                                while ($row = mysqli_fetch_assoc($result)){
+                                    echo "<tr><td>".$row['JobId']."</td><td>".$row['studentid']."</td><td>".$row['FirstName']."</td>";
+                                    if($row['Status']=='y'){
+                                        echo "<td><span class='status placed'>"."Placed"."</span></td><br>";
+                                    }
+                                    else if($row['Status']=='n'){
+                                        echo "<td><span class='status pending'>"."Not Placed"."</span></td><br>";
+                                    }
+                                }
+                            }
+                        ?>
+
+                        <!-- <tbody>
                             <tr>
                                 <td> STUDENT1</td>
                                 <td>HEllo</td>
@@ -87,7 +144,7 @@
                                 <td><span class="status placed">placed</span></td>
                                 
                             </tr>
-                        </tbody>
+                        </tbody> -->
                     </table>
                 </div>
 
