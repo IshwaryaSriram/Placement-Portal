@@ -24,7 +24,7 @@
                         <!-- <div> -->
                         <a href="#" onclick="openTab(event, 'Students')">
                         <div class ="tablink border-grey">
-                        <span class="icon" ><i class="far fa-id-card" style="vertical-align: middle;"></i></i></span>
+                        <span class="icon" ><i class="far fa-id-card" style="vertical-align: middle;"></i></span>
                         <span class="title">Resume</span>
                         </div>
                     </a>

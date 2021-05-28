@@ -24,7 +24,7 @@
                         <!-- <div> -->
                         <a href="#" onclick="openTab(event, 'Students')">
                         <div class ="tablink border-grey">
-                        <span class="icon" ><i class="fas fa-file-alt"></i></i></span>
+                        <span class="icon" ><i class="fas fa-file-alt"></i></span>
                         <span class="title">Applications</span>
                         </div>
                     </a>
@@ -35,7 +35,7 @@
                         <!-- <div class="border"> -->
                         <a href="#" onclick="openTab(event, 'Jobs')">
                         <div class ="tablink border-grey">
-                        <span class="icon"><i class="fas fa-briefcase"></i></i></span>
+                        <span class="icon"><i class="fas fa-briefcase"></i></span>
                         <span class="title">Jobs</span>
                         </div>
                     </a>
