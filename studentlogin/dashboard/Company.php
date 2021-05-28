@@ -140,9 +140,12 @@ label.dropdown:after {
     //include connection.php
     // include'connection.php';
     require_once 'dbconnect.php';
-    $sql="select * from  (select companyprofile.CompanyName,jobdetails.JobDesc,jobdetails.Vacancies,jobdetails.Start,jobdetails.Mode,
-    jobdetails.Salary,jobdetails.City,jobdetails.ApplDeadline
-    from companyprofile inner join jobdetails on companyprofile.CompanyId = jobdetails.CompanyId) as result";
+    $sql="select * from (select companyprofile.CompanyName,companyprofile.Email ,
+    jobdetails.CompanyId,jobdetails.JobDesc,jobdetails.ApplDeadline,jobdetails.Start,jobdetails.Mode,jobdetails.Salary,jobdetails.City,jobdetails.Vacancies,
+    eligibilitycriteria.CGPA,eligibilitycriteria.mark10,eligibilitycriteria.mark12,eligibilitycriteria.GradYear,eligibilitycriteria.Department
+    FROM jobdetails 
+    INNER JOIN companyprofile ON jobdetails.CompanyId = companyprofile.CompanyId
+    INNER JOIN eligibilitycriteria ON jobdetails.JobId =  eligibilitycriteria.JobId)as result";
 
     if(isset($_POST['search'])){
         // var_dump($_POST);
@@ -175,6 +178,7 @@ label.dropdown:after {
                                 <option value="companyname" class="selectopt">Company Name</option>
                                 <option value="mode" class="selectopt">Mode</option>
                                 <option value="city" class="selectopt">City</option>
+                                <option value="CGPA" class="selectopt">CGPA</option>
                         </select>
                 </label>
                 <input  type="submit" name="search" value="Search"/>
@@ -189,6 +193,9 @@ label.dropdown:after {
                 <td> COMPANY NAME </td>
                 <td> JOB DESC </td>
                 <td> NO. OF VACANCIES </td>
+                <td> CGPA Required </td>
+                <td> YEAR OF GRADUATION </td>
+                <td> DEPARTMENT(s) </td>
                 <td> START </td>
                 <td> MODE </td>
                 <td> SALARY </td>
@@ -204,13 +211,16 @@ label.dropdown:after {
         <tbody>
         <tr>
                 <td><?php echo $row['CompanyName'];?></td>
-		<td><?php echo $row['JobDesc'];?></td>
+		        <td><?php echo $row['JobDesc'];?></td>
                 <td><?php echo $row['Vacancies'];?></td>
+                <td><?php echo $row['CGPA'];?></td>
+                <td><?php echo $row['GradYear'];?></td>
+                <td><?php echo $row['Department'];?></td>
                 <td><?php echo $row['Start'];?></td>
                 <td><?php echo $row['Mode'];?></td>
                 <td><?php echo $row['Salary'];?></td>
                 <td><?php echo $row['City'];?></td>
-		<td><?php echo $row['ApplDeadline']."<br>";?></td>
+		        <td><?php echo $row['ApplDeadline']."<br>";?></td>
                 <td><a href="#" style="text-decoration: none;">Click to Apply</a></td>
         </tr>    
     </tbody>
