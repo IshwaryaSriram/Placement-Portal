@@ -135,7 +135,7 @@ if(count($_POST)>0){
         }
 
 }
-var_dump($_GET);
+// var_dump($_GET);
 $result = mysqli_query(Database::$conn,"SELECT * FROM companyprofile WHERE CompanyId='" . $_GET['CompanyId'] . "'");
 $row= mysqli_fetch_array($result,MYSQLI_ASSOC);
 ?>

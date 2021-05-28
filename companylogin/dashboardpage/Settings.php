@@ -84,7 +84,7 @@
         </tr>
         <tr>
             <td>Password</td>
-            <td><button class="pwdbtn"><a href="changepass.php?StudentId=<?php echo $row["CompanyId"]; ?>">Change Password</a></button></td>
+            <td><button class="pwdbtn"><a href="changepass.php?CompanyId=<?php echo $row["CompanyId"]; ?>">Change Password</a></button></td>
         </tr>
 			<?php
 			
