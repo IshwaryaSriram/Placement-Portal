@@ -161,7 +161,7 @@ label.dropdown:after {
     
 ?>
 <div id="Companies" class="portion" style="display:none">
-<div class="heading">VIEW STUDENT APPLICATIONS</div>
+<div class="heading">PLACEMENT APPLICATION</div>
     <div class="formdiv">
         <form class="filterform" name="search" method="POST" action="#">
             <div class="input-text">
