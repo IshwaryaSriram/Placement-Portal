@@ -123,7 +123,7 @@ if(isset($_POST['submit'])){
         
         if(mysqli_query(Database::$conn,"SELECT * from adminlogin where AdminId='".$_GET['AdminId']."'")){
             if($newPwd == $confirmPwd){
-                $pass = md5($newPwd);
+                $pass = $newPwd;
                 if(mysqli_query(Database::$conn,"update adminlogin set 
                      pwd='".$pass."' WHERE AdminId='" . $_GET['AdminId'] . "'")){
                         $message="Success";
