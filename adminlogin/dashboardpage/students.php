@@ -82,7 +82,6 @@ label.dropdown:after {
 }
 
 #Students .details-table{
-    width: 100%;
     margin: 10px;
     /* padding: 10px; */
     /* margin-top: 10px; */
@@ -91,6 +90,9 @@ label.dropdown:after {
     background: #1A1A1D;
     max-width: 100%;
     font-size: 16px;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 #Students .details-table thead tr {
     background-color: #950740;
@@ -114,6 +116,27 @@ label.dropdown:after {
     background: #4e4e50;
     color: white;
 }
+
+::-webkit-scrollbar {
+    width: 2px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #C3073F;
+  /* outline: 2px solid slategrey; */
+}
+
+::-webkit-scrollbar:vertical {
+  display: none;
+}
+
 </style>
 <?php
     //include connection.php
