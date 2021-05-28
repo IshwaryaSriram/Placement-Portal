@@ -1,4 +1,3 @@
 <div id="Students" class="portion" style="display:none">
-                <h2>Students</h2>
-                <p>Students section</p>
+<h1>Student<h1>
 </div>
