@@ -24,8 +24,8 @@
                         <!-- <div> -->
                         <a href="#" onclick="openTab(event, 'Students')">
                         <div class ="tablink border-grey">
-                        <span class="icon" ><i class="fas fa-user-graduate" style="vertical-align: middle;"></i></span>
-                        <span class="title">View Applications</span>
+                        <span class="icon" ><i class="fas fa-file-alt"></i></i></span>
+                        <span class="title">Applications</span>
                         </div>
                     </a>
                     <!-- </div> -->

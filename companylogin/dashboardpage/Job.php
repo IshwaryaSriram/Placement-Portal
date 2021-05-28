@@ -2,7 +2,7 @@
 <div class="rescontainer">
     <div class="title">Job Details</div>
     <div class="content">
-      <form action="../form/formsub.php" method="POST" enctype="multipart/form-data" autocomplete="off">
+      <form action="../form/formsub.php" method="POST" enctype="multipart/form-data" autocomplete="off" style="width:auto;">
         <div class="user-details">
           <div class="input-box">
             <span class="details">Company ID</span>

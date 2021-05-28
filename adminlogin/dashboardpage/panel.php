@@ -46,7 +46,7 @@
                         <!-- <div class="" > -->
                         <a href="#" onclick="openTab(event, 'Settings')">
                         <div class ="tablink border-grey">
-                        <span class="icon"><i class="fas fa-cog"></i></span>
+                        <span class="icon"><i class="fas fa-key"></i></span>
                         <span class="title">Settings</span>
                         </div>
                     </a>
