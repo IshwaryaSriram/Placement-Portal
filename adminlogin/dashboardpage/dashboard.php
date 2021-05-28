@@ -98,11 +98,12 @@
                                 while ($row = mysqli_fetch_assoc($result)){
                                     echo "<tr><td>".$row['StudentId']."</td><td>".$row['FirstName']."</td>";
                                     if($row['Status']=='y'){
-                                        echo "<td><span class='status placed'>"."Placed"."</span></td><br>";
+                                        echo "<td><span class='status placed'>"."Placed"."</span></td>";
                                     }
                                     else if($row['Status']=='n'){
-                                        echo "<td><span class='status pending'>"."Not Placed"."</span></td><br>";
+                                        echo "<td><span class='status pending'>"."Not Placed"."</span></td>";
                                     }
+                                    echo "</tr>";
                                 }
                             }
                         ?>
