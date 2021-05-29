@@ -24,7 +24,7 @@
                     <div>
                         <div class="numbers">
                         <?php
-                            $sql = "SELECT * FROM jobappl";
+                            $sql = "SELECT * FROM jobdetails";
                             $result = mysqli_query(Database::$conn,$sql);
                             $rowCount = mysqli_num_rows($result);
                             echo($rowCount);
