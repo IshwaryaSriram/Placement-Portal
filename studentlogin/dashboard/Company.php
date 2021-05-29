@@ -204,21 +204,23 @@ label.dropdown:after {
                 <td> SALARY </td>
                 <td> CITY NAME </td>
                 <td> DEADLINE </td>
-                <td> student ID </td>
+                <!-- <td> student ID </td> -->
                 <td> APPLY </td> 
                 
             </tr>
             </thead>
             <?php 
                 // echo "hello";
+                
                  while($row = mysqli_fetch_array($query)){
+
                    
             ?>
         <tbody>
         <tr>
-            <form action="apply.php" method="POST">
+            <!-- <form action="apply.php" method="GET"> -->
                 
-                <td><input name="JobId" value="<?php echo $row['JobId'];?>"></td>
+                <td><?php echo $row['JobId'];?></td>
                 <td><?php echo $row['CompanyName'];?></td>
 		        <td><?php echo $row['JobDesc'];?></td>
                 <td><?php echo $row['Vacancies'];?></td>
@@ -230,10 +232,10 @@ label.dropdown:after {
                 <td><?php echo $row['Salary'];?></td>
                 <td><?php echo $row['City'];?></td>
 		        <td><?php echo $row['ApplDeadline']."<br>";?></td>
-                <td><input type="text" name="studentId"></td>
+                <!-- <td><input type="text" name="studentId"></td> -->
                 <!-- <td><input type="submit" name="submit"><a href="apply.php" style="text-decoration: none;">Click to Apply</a></td> -->
+                <td><a href="apply.php?sid=<?php echo $_SESSION['username'];?>&jid=<?php echo $row['JobId'];?>" style="text-decoration:none;">Click To Apply</a></td>
                 
-                <td><input type="submit" name="submit" value="Click to Apply"></td></form>
         </tr>    
     </tbody>
     

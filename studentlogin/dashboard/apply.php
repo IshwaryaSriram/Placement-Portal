@@ -1,28 +1,56 @@
 <?php
-include "dbconnect.php"; // Using database connection file here
-include "company.php";
-if(isset($_POST['submit']))
-{		
-    // $sql="SELECT * from jobdetails where JobId='".$_GET['jobid']."'";
-    // $result = mysqli_query(Database::$conn,$sql);
-    // $rows = mysqli_fetch_array($result);
-    // $fullname = $_POST['fullname'];
-    // $age = $_POST['age'];
+include "dbconnect.php";
+if(isset($_GET['sid']))
+{	
+    print_r($_GET);
+        $jobid =$_GET['jid'];
+        $stuid = $_GET['sid'];
+        
+        $query=mysqli_query(Database::$conn,"SELECT status from studentdetails where studentid='$stuid'");
+        $row= mysqli_fetch_assoc($query);
+        if($row['status']=='n')
+        {
+            $query1=mysqli_query(Database::$conn,"SELECT vacancies from jobdetails where jobid='$jobid'");
+            $row= mysqli_fetch_assoc($query1);
+            if($row['vacancies'])
+            {
+                $query1=mysqli_query(Database::$conn,"SELECT * from jobappl where jobid='$jobid' and studentid='$stuid'");
+                $row= mysqli_fetch_assoc($query1);
+                if(!$row)
+                {
+                    if(!mysqli_query(Database::$conn,"INSERT INTO `jobappl`(`Status`, `studentid`, `JobId`) VALUES ('n','$stuid','$jobid')"))
+                    {
+                        echo mysqli_error(Database::$conn);
+                    }
+                    else
+                    {
+                        echo "<script>alert('Record added successfully.');</script>";
+                        echo "<script>location.replace('mainindex.php');</script>";
+                        // header('location: mainindex.php');
+                    }
 
-    // if(mysqli_query(Database::$conn,"SELECT * from jobdetails where JobId='".$_GET['jobid']."'")){
-        $jobid =$_POST['JobId'];
-        $stuid = $_POST['studentId'];
-        // echo "$jobid";
-        if(!mysqli_query(Database::$conn,"INSERT INTO `jobappl`(`Status`, `studentid`, `JobId`) VALUES ('n','$stuid','$jobid')")){
-            echo mysqli_error(Database::$conn);
+                }
+                else
+                {
+                    echo "<script>alert('Application submitted previously');</script>";
+                    echo "<script>location.replace('mainindex.php');</script>";
+                }
+
+            }
+            else
+            {
+                echo "<script>alert('No Vacancies Left, Applications Closed');</script>";
+                echo "<script>location.replace('mainindex.php');</script>";
+            }
         }
         else
         {
-            echo "Records added successfully.";
-            // header('location: mainindex.php');
+                echo "<script>alert('Already Placed, cannot apply');</script>";
+                echo "<script>location.replace('mainindex.php');</script>";
         }
+       
+        
 }
 
 
-// mysqli_close($db); // Close connection
 ?>
