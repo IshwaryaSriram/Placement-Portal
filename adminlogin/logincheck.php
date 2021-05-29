@@ -19,7 +19,7 @@
             }
             else{
                 echo "Log in failed<br>";
-                header('Location:adminmainpage.php');
+                header('Location:adminlogin.php');
             }
         
     }
