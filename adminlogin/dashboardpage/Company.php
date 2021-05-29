@@ -135,7 +135,7 @@ label.dropdown:after {
 ::-webkit-scrollbar:vertical {
   display: none;
 }
-.section {
+.sectioncomp {
     max-width: var(--sectionWidth);
     margin:  auto;
     width: 97%;
@@ -248,7 +248,7 @@ label.dropdown:after {
     
 ?>
 <div id="Companies" class="portion" >
-<section class="section">
+<section class="sectioncomp">
     <details open>
       <summary>View Companies</summary>
       <div>
@@ -295,18 +295,49 @@ label.dropdown:after {
                 <td><?php echo $row['Email'];?></td>
 				<td><?php echo $row['PhoneNumber'];?></td>
                 <td><?php echo $row['City'];?></td>
-                <td><a href="#" style="text-decoration: none;">Delete</a></td>
+                <td><a href="#addcomp=1" style="text-decoration: none;">Delete</a></td>
         </tr>    
     </tbody>
     <?php }?>
     </table>
       </div>
     </details>
+
+    <?php
+        $stmt="select * from notifications where unread='1' order by time desc ";
+        $sqlquery = mysqli_query(Database::$conn,$stmt) or die(mysqli_error(Database::$conn));
+
+    ?>
     <details>
         <br>
       <summary>Add Companies</summary>
       <div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <table class="details-table">
+            <thead>
+            <tr>
+                <td> NOTIFICATION ID </td>
+                <td> COMPANY NAME </td>
+                <td> UNREAD </td>
+                <td> TIME </td>
+                <td> CREATE COMPANY</td>
+            </tr>
+            </thead>
+            <?php 
+                // echo "hello";
+                 while($rownotif = mysqli_fetch_array($sqlquery)){
+                  // print_r($rownotif);
+                    ?>
+        <tbody>
+        <tr>
+                <td><?php echo $rownotif['id'];?></td>
+                <td><?php echo $rownotif['companyName'];?></td>
+                <td><?php echo $rownotif['unread'];?></td>
+                <td><?php echo $rownotif['time'];?></td>
+                <td><a href="managecomp.php?addcomp=1&id=<?php echo $rownotif['id'];?>&name=<?php echo $rownotif['companyName'];?>" style="text-decoration: none;">Insert</a></td>
+        </tr>    
+    </tbody>
+    <?php }?>
+    </table>
       </div>
     </details>
     

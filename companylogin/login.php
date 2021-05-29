@@ -23,6 +23,7 @@
                         <input type="password" name="password" class="form-control" placeholder="Enter password" autocomplete="off" required>
                    </div>
 				   <button type="submit" class="btn btn-danger" name="login_user">Login</button>                  
+                       <p>Not yet a member? <a href="notif.php">Sign up</a></p>       
                 </form>
            </div> 
         </div>

@@ -29,14 +29,13 @@ if (isset($_POST['login_user'])) {
         if (mysqli_num_rows($results) == 1) {
           $_SESSION['username'] = $username;
           $_SESSION['success'] = "You are now logged in";
-          $sqlquery="select * from companydetails where companyid='$username'";
+          $sqlquery="select * from companyprofile where CompanyId='$username'";
           $res=mysqli_query($db,$sqlquery);
-          if(mysqli_num_rows($results) == 0)
+
+          $numrows=mysqli_num_rows($res);
+          if(!$numrows)
           {
 
-        //   if ($_COOKIE['username']!=$_SESSION['username'])
-        //     {
-        //         setcookie("username", $_SESSION['username'], time() + (10 * 365 * 24 * 60 * 60));
                 header('Location: form/form.php');
                 exit();
             }
@@ -45,7 +44,7 @@ if (isset($_POST['login_user'])) {
                 header('Location: dashboardpage/mainindex.php');
                 exit();
             }
-          //header('location: dashboardpage/mainindex.php');
+
         }else {
             array_push($errors, "Wrong username/password combination");
         }
