@@ -8,9 +8,32 @@
             <span class="details">Company ID</span>
             <input type="text" value=<?php echo $_SESSION['username'];?> name="CompanyId" placeholder="Enter Company ID" required >
           </div>
+          <?php
+  require_once 'dbconnect.php';
+  // echo $_SESSION['username'];
+  $sql= "select * from jobdetails";
+  $result = Database::$conn->query($sql);
+  $rowcount=$result->num_rows ;
+  // echo $rowcount;
+  $comp=$_SESSION['username'];
+  $compstr ="";
+  $sql= "select companyname from companyprofile where companyid='$comp' ";
+  $result = Database::$conn->query($sql);
+  if ($result->num_rows > 0) {
+      $row = $result->fetch_assoc();
+      $compstr = $row['companyname'];
+  }
+  else {
+    echo("Error description: " . $mysqli -> error);
+  }
+  // echo substr($compstr,0,3);
+  $id=$_SESSION['username'].substr($compstr,0,3).$rowcount; 
+  //echo $id;
+
+  ?>
           <div class="input-box">
             <span class="details">Job ID</span>
-            <input type="text" name="JobId" placeholder="Enter Job ID" required>
+            <input type="text" name="JobId" value=<?php echo $id;?> placeholder="Enter Job ID" >
           </div>
 
           <div class="input-text">

@@ -55,11 +55,13 @@ if (isset($_POST['ressub'])) {
   
     if ($user) { // if user exists
         if ($user['JobId'] === $jid) {
-          array_push($errors, "JobId already exists");
+            echo "<script>alert('Job ID already taken');</script>";
+            echo "<script>location.replace('../dashboardpage/mainindex.php');</script>";
+        //   array_push($errors, "JobId already exists");
         }
     }
     // print_r($errors);
-    if(count($errors)==0)
+    else
     {
 
     $stmt = Database::$conn->prepare("INSERT INTO jobdetails 
