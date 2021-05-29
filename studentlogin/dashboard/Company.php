@@ -140,7 +140,7 @@ label.dropdown:after {
     //include connection.php
     // include'connection.php';
     require_once 'dbconnect.php';
-    $sql="select * from (select companyprofile.CompanyName,companyprofile.Email ,
+    $sql="select * from (select companyprofile.CompanyName,companyprofile.Email,jobdetails.JobId,
     jobdetails.CompanyId,jobdetails.JobDesc,jobdetails.ApplDeadline,jobdetails.Start,jobdetails.Mode,jobdetails.Salary,jobdetails.City,jobdetails.Vacancies,
     eligibilitycriteria.CGPA,eligibilitycriteria.mark10,eligibilitycriteria.mark12,eligibilitycriteria.GradYear,eligibilitycriteria.Department
     FROM jobdetails 
@@ -163,6 +163,7 @@ label.dropdown:after {
     $query = mysqli_query(Database::$conn,$sql) or die(mysqli_error(Database::$conn));
     
 ?>
+
 <div id="Companies" class="portion" style="display:none">
 <div class="heading">PLACEMENT APPLICATION</div>
     <div class="formdiv">
@@ -190,6 +191,8 @@ label.dropdown:after {
     <table class="details-table">
             <thead>
             <tr>
+                
+                <td> JOB ID </td>
                 <td> COMPANY NAME </td>
                 <td> JOB DESC </td>
                 <td> NO. OF VACANCIES </td>
@@ -201,15 +204,21 @@ label.dropdown:after {
                 <td> SALARY </td>
                 <td> CITY NAME </td>
                 <td> DEADLINE </td>
+                <td> student ID </td>
                 <td> APPLY </td> 
+                
             </tr>
             </thead>
             <?php 
                 // echo "hello";
                  while($row = mysqli_fetch_array($query)){
-                    ?>
+                   
+            ?>
         <tbody>
         <tr>
+            <form action="apply.php" method="POST">
+                
+                <td><input name="JobId" value="<?php echo $row['JobId'];?>"></td>
                 <td><?php echo $row['CompanyName'];?></td>
 		        <td><?php echo $row['JobDesc'];?></td>
                 <td><?php echo $row['Vacancies'];?></td>
@@ -221,9 +230,13 @@ label.dropdown:after {
                 <td><?php echo $row['Salary'];?></td>
                 <td><?php echo $row['City'];?></td>
 		        <td><?php echo $row['ApplDeadline']."<br>";?></td>
-                <td><a href="#" style="text-decoration: none;">Click to Apply</a></td>
+                <td><input type="text" name="studentId"></td>
+                <!-- <td><input type="submit" name="submit"><a href="apply.php" style="text-decoration: none;">Click to Apply</a></td> -->
+                
+                <td><input type="submit" name="submit" value="Click to Apply"></td></form>
         </tr>    
     </tbody>
+    
     <?php }?>
     </table>
 
