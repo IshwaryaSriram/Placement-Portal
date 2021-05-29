@@ -116,7 +116,7 @@ form .user-details .input-box{
 include_once 'dbconnect.php';
 
 if(isset($_POST['submit'])){
-        var_dump($_POST);
+        //var_dump($_POST);
         $currPwd = $_POST['pwd'];
         $newPwd = $_POST['NewPwd'];
         $confirmPwd = $_POST['ConfirmPwd'];
@@ -124,8 +124,7 @@ if(isset($_POST['submit'])){
         if(mysqli_query(Database::$conn,"SELECT * from adminlogin where AdminId='".$_GET['AdminId']."'")){
             if($newPwd == $confirmPwd){
                 $pass = $newPwd;
-                if(mysqli_query(Database::$conn,"update adminlogin set 
-                     pwd='".$pass."' WHERE AdminId='" . $_GET['AdminId'] . "'")){
+                if(mysqli_query(Database::$conn,"CALL AdmPwdChange('$pass')")){
                         $message="Success";
                         echo "<script>alert('Updated Successfully');</script>";
                         echo "<script>location.replace('mainindex.php');</script>";

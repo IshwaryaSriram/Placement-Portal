@@ -60,7 +60,7 @@
         </tr>
         <tr>
             <td>Password</td>
-		    <td><button class="pwdbtn"><a href="changepass.php?AdminId=<?php echo $row["AdminId"]; ?>">Change Password</a></button></td>
+		    <td><button class="pwdbtn" style="background:#950740;padding:2px;border-radius:5px;outline:none;"><a href="changepass.php?AdminId=<?php echo $row["AdminId"]; ?>" style=" text-decoration:none; ">Change Password</a></button></td>
         </tr>
 			<?php
 			
