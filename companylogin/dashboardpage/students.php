@@ -201,6 +201,7 @@ label.dropdown:after {
                 <td> DOB  </td>
                 <td> GENDER  </td>
                 <td> EMAIL ID  </td>
+                <td> VIEW RESUME  </td>
                 <td> APPL. STATUS  </td> 
             </tr>
             </thead>
@@ -221,6 +222,7 @@ label.dropdown:after {
             <td><?php echo $row['DoB']."<br>";?></td>
             <td><?php echo $row['Gender']."<br>";?></td>
             <td><?php echo $row['EmailId']."<br>";?></td>
+            <td><a href="fileview.php?id=<?php echo $row['StudentId'];?>" style="text-decoration:none;">Click here</a></td>
             <td><a href="#" style="text-decoration: none;">Change Appl. Status</a></td>
         </tr>    
     </tbody>
