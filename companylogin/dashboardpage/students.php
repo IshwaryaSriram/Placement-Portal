@@ -140,7 +140,7 @@ label.dropdown:after {
     //include connection.php
     // include'connection.php';
     require_once 'dbconnect.php';
-    $sql="select * from  (select studentdetails.FirstName , studentdetails.DoB , studentdetails.EmailId , studentdetails.UG,
+    $sql="select * from  (select studentdetails.StudentId ,studentdetails.FirstName , studentdetails.DoB , studentdetails.EmailId , studentdetails.UG,
     studentdetails.College , studentdetails.Gender , studentresume.Department , studentresume.CGPA , studentresume.GradYear , jobappl.JobId 
     from studentdetails
     inner join studentresume on studentdetails.StudentId  = studentresume.StudentId
@@ -190,6 +190,7 @@ label.dropdown:after {
     <table class="details-table">
             <thead>
             <tr>
+                <td> STUDENT ID  </td>
                 <td> STUDENT NAME  </td>
                 <td> COLLEGE  </td>
                 <td> DEPARTMENT  </td>
@@ -209,6 +210,7 @@ label.dropdown:after {
                     ?>
         <tbody>
         <tr>
+            <td><?php echo $row['StudentId'];?></td>
             <td><?php echo $row['FirstName'];?></td>
             <td><?php echo $row['College'];?></td>
             <td><?php echo $row['Department'];?></td>
