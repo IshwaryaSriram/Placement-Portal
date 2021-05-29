@@ -10,7 +10,8 @@ input{
 .rescontainer{
   max-width: 80%;
   width: 100%;
-  
+  margin:auto;
+  margin-top: 100px;
   background-color: #1A1A1D;
   padding: 25px 30px;
   border-radius: 5px;
@@ -136,30 +137,17 @@ if(isset($_POST['submit'])){
         
         }
 
-    // if(mysqli_query(Database::$conn,"update studentlogin set 
-    //     FirstName='".$_POST['FirstName']."', LastName='".$_POST['LastName']."'
-    //     , EmailId='".$_POST['EmailId']."', MobileNumber='".$_POST['MobileNumber']."'
-    //     , Dob='".$_POST['Dob']."' WHERE StudentId='" . $_GET['StudentId'] . "'"))
-    //     {
-    //         $message="Success";
-    //         echo "<script>alert('Updated Successfully');</script>";
-    //         echo "<script>location.replace('mainindex.php');</script>";
-    //     }
-    //     else{
-    //         echo mysqli_error(Database::$conn);
-    //     }
-
 }
-// var_dump($_GET);
-$result = mysqli_query(Database::$conn,"SELECT * FROM adminlogin WHERE AdminId ='" . $_GET['AdminId'] . "'");
+// var_dump($_SESSION);
+$result = mysqli_query(Database::$conn,"SELECT * FROM adminlogin WHERE AdminId ='" . $_SESSION['admin'] . "'");
 $row= mysqli_fetch_array($result,MYSQLI_ASSOC);
 ?>
 
 <!-- style="display:none" -->
-<div id="Settings" class="portion" >
+<div id="Settings" class="portion" style="display:none;">
 
 <div class="rescontainer">
-    <div class="title">Edit Details</div>
+    <div class="title">Change Password</div>
     <div class="content">
         <form name="editform" method="post" action="" autocomplete="off">
     <div><?php if(isset($message)) { echo $message; } ?> 

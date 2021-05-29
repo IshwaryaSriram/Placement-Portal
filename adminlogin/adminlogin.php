@@ -24,7 +24,7 @@
                         <label>Password</label>
                         <input type="password" name="password" class="form-control" placeholder="Enter password" autocomplete="off">
                    </div>
-                   <input type="submit" class="btn btn-success" name="submit">
+                   <input type="submit" class="btn btn-success" name="submit" style="background-color: #dc3545;border-color: #dc3545;">
                 </form>
            </div> 
         </div>
