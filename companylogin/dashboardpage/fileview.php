@@ -20,6 +20,12 @@
     font-size: 30px;
     font-weight: 750;
 }
+.rollno{
+  display:flex;
+  justify-content: space-between;
+  margin:10px;
+}
+
 </style>
 
 <?php
@@ -46,8 +52,10 @@ while($row = $result->fetch_object()){
     <p style="background:transparent; margin: auto;">Placement Portal</p>
   </div>
 </div>
-<h4 style="width:100%;">Student Resume</h4>
-<p>Student ID: <?php echo $_GET['id'];?></p>
+<div class="rollno">
+<h4 style="display:inline;">Student Resume</h4>
+<h4 style="display:inline;">Student ID: <?php echo $_GET['id'];?></h4>
+</div>
 <br/><br/>
 <iframe src="<?php echo $path.$pdf; ?>" width="100%" height="500px">
 </iframe>
