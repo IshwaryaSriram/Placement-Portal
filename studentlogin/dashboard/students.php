@@ -13,7 +13,8 @@ option {
 .rescontainer{
   max-width: 80%;
   width: 100%;
-  
+  margin: auto;
+  margin-top: 50px;
   background-color: #1A1A1D;
   padding: 25px 30px;
   border-radius: 5px;
