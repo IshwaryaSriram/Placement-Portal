@@ -224,7 +224,7 @@ label.dropdown:after {
             <td><?php echo $row['Gender']."<br>";?></td>
             <td><?php echo $row['EmailId']."<br>";?></td>                
             <td><?php echo $row['Status'];?></td>
-            <td><a href="#" style="text-decoration: none;">Remove</a></td>
+            <td><a href="remove.php?sid=<?php echo $row['StudentId'];?>" style="text-decoration:none;">Remove</a></td>
         </tr>    
     </tbody>
     <?php }?>

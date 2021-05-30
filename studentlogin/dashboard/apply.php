@@ -8,7 +8,11 @@ if(isset($_GET['sid']))
         
         $query=mysqli_query(Database::$conn,"SELECT status from studentdetails where studentid='$stuid'");
         $row= mysqli_fetch_assoc($query);
-        if($row['status']=='n')
+        if($row['status']=='b'){
+            echo "<script>alert('Account has been removed, please contact admin');</script>";
+            echo "<script>location.replace('mainindex.php');</script>";
+        }
+        else if($row['status']=='n')
         {
             $query1=mysqli_query(Database::$conn,"SELECT vacancies from jobdetails where jobid='$jobid'");
             $row= mysqli_fetch_assoc($query1);

@@ -90,7 +90,7 @@
                             </tr>
                         </thead>
                         <?php
-                            $sql = "SELECT * FROM studentdetails";
+                            $sql = "SELECT * FROM studentdetails where Status!='y'";
                             $result = mysqli_query(Database::$conn,$sql);
                             $rowCount = mysqli_num_rows($result);
                             // echo($rowCount);
