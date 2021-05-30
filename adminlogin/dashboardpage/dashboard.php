@@ -90,7 +90,7 @@
                             </tr>
                         </thead>
                         <?php
-                            $sql = "SELECT * FROM studentdetails where Status!='y'";
+                            $sql = "SELECT * FROM studentdetails where Status!='b'";
                             $result = mysqli_query(Database::$conn,$sql);
                             $rowCount = mysqli_num_rows($result);
                             // echo($rowCount);
@@ -107,34 +107,6 @@
                                 }
                             }
                         ?>
-                        <!-- <tbody>
-                            <tr>
-                                <td> STUDENT1</td>
-                                <td>HEllo</td>
-                                <td><span class="status placed">placed</span></td>
-                            </tr>
-                            <tr>
-                                <td> STUDENT1</td>
-                                <td>HEllo</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-                            <tr>
-                                <td> STUDENT1</td>
-                                <td>HEllo</td>
-                                <td><span class="status placed">placed</span></td>
-                            </tr>
-                            <tr>
-                                <td> STUDENT1</td>
-                                <td>HEllo</td>
-                                <td><span class="status blacklist">Blacklisted</span></td>
-                            </tr>
-                            <tr>
-                                <td> STUDENT1</td>
-                                <td>HEllo</td>
-                                <td><span class="status placed">placed</span></td>
-                                
-                            </tr>
-                        </tbody> -->
                     </table>
                 </div>
 

@@ -312,12 +312,22 @@ body > div.container > div > ul > li:nth-child(2) > div */
 
 .details .recentComm{
     position: relative;
-    display: grid;
+    /* display: grid; */
     min-height: 530px;
     background: #1A1A1D;
     padding:20px;
 }
+.details .recentComm table tr{
+    border-bottom: 1px solid grey;
+}
 
+.details .recentComm table tbody tr:last-child{
+    border-bottom: none;
+}
+.details .recentComm table tbody tr:hover{
+    background: #4e4e50;
+    color: white;
+}
 .details .recentComm .imgBx
 {
     position: relative;
@@ -335,12 +345,12 @@ body > div.container > div > ul > li:nth-child(2) > div */
     height:100%;
     object-fit: cover;
 }
-
+/* 
 .details .recentComm table tr:hover,
 .details .recentComm table tr:hover td h4 span{
     background: #4e4e50;
     color: white;
-}
+} */
 
 .details .recentComm table tr td{
     padding:7px 10px;

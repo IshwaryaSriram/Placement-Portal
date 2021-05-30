@@ -6,7 +6,7 @@
         <title>Company Dashboard</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styl.css">
+        <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="../form/jobformstyle.css">
         <!-- <script data-search-pseudo-elements defer src="https://use.fontawesome.com/releases/latest/js/all.js" integrity="sha384-L469/ELG4Bg9sDQbl0hvjMq8pOcqFgkSpwhwnslzvVVGpDjYJ6wJJyYjvG3u8XW7" crossorigin="anonymous"></script> -->
         <script src="https://kit.fontawesome.com/af3b78fe80.js" crossorigin="anonymous"></script>
