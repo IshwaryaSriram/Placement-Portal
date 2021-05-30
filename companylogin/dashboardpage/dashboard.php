@@ -122,7 +122,7 @@
 
                 <div class="recentComm">
                     <div class="cardHeader">
-                        <h2>Side</h2>
+                        <h2>Jobs</h2>
                     </div>
                     <table>
                         <thead>
@@ -138,7 +138,8 @@
                                 // echo($rowCount);
                             if($rowCount > 0){
                                 while ($row = mysqli_fetch_assoc($result)){
-                                    echo "<tr><td>".$row['JobId']."</td><td>".$row['Vacancies']."</td></tr>";
+                                    if($row['Vacancies']>0)
+                                        echo "<tr><td>".$row['JobId']."</td><td>".$row['Vacancies']."</td></tr>";
                                 }
                             }
                         ?>
