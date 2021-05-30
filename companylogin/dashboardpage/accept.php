@@ -10,10 +10,10 @@ if(isset($_GET['sid']))
     
     if(mysqli_query(Database::$conn,$sql))
     {
-        $row= mysqli_fetch_assoc($query);
-        echo"eiofhiurgfr";
-        // echo "<script>alert('Updated successfully.');</script>";
-        // echo "<script>location.replace('mainindex.php');</script>";
+        // $row= mysqli_fetch_assoc($query);
+        // echo"eiofhiurgfr";
+        echo "<script>alert('Updated successfully.');</script>";
+        echo "<script>location.replace('mainindex.php');</script>";
     }
     else{
         echo mysqli_error(Database::$conn);
