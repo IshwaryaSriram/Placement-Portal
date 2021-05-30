@@ -9,7 +9,7 @@
 <body style="background-color: black;">
   <!--styling using bootstrap classes -->
   <div class="container center-div shadow ">
-        <div class="heading text-center text-white mb-5">Student Registration Page</div>
+        <div class="heading text-center text-white mb-5">Company Registration Page</div>
         <div class="container row d-flex flex-row justify-content-center mb-5">
            <div class="admin-form shadow p-2">
                 <form action="#" method="post">
