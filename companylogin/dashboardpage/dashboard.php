@@ -81,7 +81,7 @@
                 <div class="recent">
                     <div class="cardHeader">
                         <h2>Table</h2>
-                        <a href="#" class="btn">View All</a>
+                        <a href="#" onclick="openTab(event, 'Students')" class="btn">View All</a>
                     </div>
                     <table>
                         <thead>
