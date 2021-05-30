@@ -159,8 +159,9 @@ label.dropdown:after {
         //$sql .= "ORDER BY jobdetails.ApplDeadline DESC";
         //echo "<br>".$sql;
         
-        // print_r(mysqli_fetch_array($query));   
-       
+        // print_r(mysqli_fetch_array($query));       
+    }
+    elseif(isset($_POST['reset'])){
 
     }
     $query = mysqli_query(Database::$conn,$sql) or die(mysqli_error(Database::$conn));
@@ -185,6 +186,7 @@ label.dropdown:after {
                 </select>
                 </label>
                 <input  type="submit" name="search" value="Search"/>
+                <input  type="submit" name="reset" value="Reset"/>
             </div>
             
             
