@@ -280,7 +280,7 @@ label.dropdown:after {
                 <td> EMAIL ID </td>
                 <td> PHONE NO. </td>
                 <td> CITY </td>
-                <td> REMOVE </td>
+                <!-- <td> REMOVE </td> -->
            
             </tr>
             </thead>
@@ -295,7 +295,7 @@ label.dropdown:after {
                 <td><?php echo $row['Email'];?></td>
 				<td><?php echo $row['PhoneNumber'];?></td>
                 <td><?php echo $row['City'];?></td>
-                <td><a href="#addcomp=1" style="text-decoration: none;">Delete</a></td>
+                <!-- <td><a href="#addcomp=1" style="text-decoration: none;">Delete</a></td> -->
         </tr>    
     </tbody>
     <?php }?>
