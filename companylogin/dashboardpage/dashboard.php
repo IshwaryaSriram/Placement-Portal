@@ -80,7 +80,7 @@
             <div class="details">
                 <div class="recent">
                     <div class="cardHeader">
-                        <h2>Table</h2>
+                        <h2>Applications</h2>
                         <a href="#" onclick="openTab(event, 'Students')" class="btn">View All</a>
                     </div>
                     <table>
