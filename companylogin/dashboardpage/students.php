@@ -140,11 +140,14 @@ label.dropdown:after {
     //include connection.php
     // include'connection.php';
     require_once 'dbconnect.php';
+    $comp = mysqli_real_escape_string(Database::$conn,$_SESSION['username']);
     $sql="select * from  (select studentdetails.StudentId ,studentdetails.FirstName , studentdetails.DoB , studentdetails.EmailId , studentdetails.UG,
-    studentdetails.College , studentdetails.Gender , studentresume.Department , studentresume.CGPA , studentresume.GradYear , jobappl.JobId 
-    from studentdetails
-    inner join studentresume on studentdetails.StudentId  = studentresume.StudentId
-    inner join jobappl on studentdetails.StudentId  = jobappl.StudentId
+    studentdetails.College , studentdetails.Gender , studentresume.Department , studentresume.CGPA , studentresume.GradYear , jobappl.JobId , jobdetails.CompanyId 
+    from jobappl
+    inner join studentdetails on studentdetails.StudentId  = jobappl.StudentId
+    inner join studentresume on studentresume.StudentId  = jobappl.StudentId
+    inner join jobdetails on jobdetails.JobId = jobappl.JobId
+    Where jobdetails.CompanyId = $comp
     )as result";
 
     if(isset($_POST['search'])){
