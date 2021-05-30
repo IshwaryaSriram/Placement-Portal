@@ -58,7 +58,7 @@
                     <div>
                         <div class="numbers">
                         <?php
-                            $sql = "SELECT * FROM studentdetails";
+                            $sql = "SELECT * FROM studentdetails where studentdetails.studentid ='" . $_SESSION['username'] . "'";
                             $result = mysqli_query(Database::$conn,$sql);
                             $rowCount = mysqli_num_rows($result);
                             if($rowCount > 0){
